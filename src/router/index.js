@@ -8,7 +8,7 @@ const originalPush = Router.prototype.push
 }
 
 export default new Router({
-  // mode: 'history', // 去掉 #
+  mode: 'history', // 去掉 #
   routes: [
     {
       path: '/',
@@ -16,9 +16,9 @@ export default new Router({
       component: () => import('@/pages/home/index')
     },
     {
-      path: '/login',
-      name: 'login',
-      component: () => import('@/pages/home/user/login')
+      path: '/yxadmin',
+      name: 'yxadmin',
+      component: () => import('@/pages/home/user/yxadmin')
     },
     {
       path: '/admin',
@@ -74,10 +74,34 @@ export default new Router({
           meta:{title:'我的报表',requireAuth:false}
         },
         {
-          path: 'member/staffList',
+          path: 'order/list',
+          name:'orderlist',
+          component: () => import('@/pages/admin/order/list'),
+          meta:{title:'订单列表',requireAuth:false}
+        },
+        {
+          path: 'company/staffList',
           name:'staffList',
-          component: () => import('@/pages/admin/member/staffList'),
+          component: () => import('@/pages/admin/company/staffList'),
           meta:{title:'员工管理',requireAuth:false}
+        },
+        {
+          path: 'company/about',
+          name:'companyAbout',
+          component: () => import('@/pages/admin/company/about'),
+          meta:{title:'企业资料',requireAuth:false}
+        },
+        {
+          path: 'system/userList',
+          name:'userList',
+          component: () => import('@/pages/admin/system/userlist'),
+          meta:{title:'用户列表',requireAuth:false}
+        },
+        {
+          path: 'system/roleAuth',
+          name:'roleauth',
+          component: () => import('@/pages/admin/system/roleauth'),
+          meta:{title:'角色权限',requireAuth:false}
         },
       ],
 

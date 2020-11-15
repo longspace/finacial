@@ -8,7 +8,7 @@
   import uiform from "@/components/basic/uiform.vue"
   import uitable from "@/components/basic/uitable.vue"
   export default {
-      name:'worker',
+      name:'orderlist',
       data() {
         return {
           // 表单配置要显示哪些字段
@@ -20,10 +20,11 @@
               formbtn:[
                   {key:'query',label:'查询',type:'primary', icon: 'search',ghost:true,handle:()=>this.formQuery(),style:{}},
                   {key:'add',label:'导出',type:'', icon: 'plus',ghost:true,handle:()=>this.dialogAdd(),style:{'margin-left':'15px','border-color':'#e6a23c','color':'#e6a23c'}},
+                  {key:'add',label:'录入行政资料',type:'', icon: 'plus',ghost:true,handle:()=>this.dialogAdd(),style:{'margin-left':'15px','border-color':'#e6a23c','color':'#e6a23c'}},
               ]
             },
             data:[
-              {type:'Input',label:'',field:'keywords',icon:'align-left',style:{width:'210px'},placeholder:'用户账号、电话'},
+              {type:'Input',label:'',field:'keywords',icon:'align-left',style:{width:'210px'},placeholder:'客户姓名、电话'},
               {type:'DateRange',label:'',field:'daterange',icon:'smile',style:{width:'230px'}},
             ]
           },
@@ -35,21 +36,19 @@
 
           tablecfg: {
               headerOptions:[
-                  { title: '员工姓名', field: 'workerName', width:'150px'},
-                  { title: '跟进中客户数', field: 'followingCount'},
-                  { title: '自拓客户数', field: 'selfCustomerCount'},
-                  { title: '初分配客户数', field: 'giveCustomerCount'},
-                  { title: '成交客户数', field: 'dealCustomerCount'},
-                  { title: '成交订单数', field: 'dealOrderCount'},
-                  { title: '成交金额', field: 'dealOrderMoney'},
+                  { title: '客户姓名', field: 'workerName'},
+                  { title: '订单类型', field: 'followingCount'},
+                  { title: '订单金额', field: 'selfCustomerCount'},
+                  { title: '订单进度', field: 'orderStep'},
+                  { title: '创建时间', field: 'dealOrderMoney'},
               ],
-              // algin:'center',
-              // operateLabel:'操作管理',
-              // operateWidth:'75px',
-              // operateOptions: [
-              //     { title: '修改', type: 'primary', icon: 'edit', methods: 'edithandle' },
-              //     { title: '删除', type: 'danger', icon: 'delete', methods: 'deletehandle' },
-              // ]
+              algin:'center',
+              operateLabel:'操作管理',
+              operateWidth:'75px',
+              operateOptions: [
+                  { title: '发礼包', type: 'primary', icon: 'gift', methods: 'edithandle' },
+                  { title: '删除', type: 'danger', icon: 'delete', methods: 'deletehandle' },
+              ]
           },
           tabledata:[],
         };
@@ -90,10 +89,10 @@
       },
       mounted(){
         this.tabledata = [
-            {id:100,workerName:'天真标',followingCount:20,selfCustomerCount:6,giveCustomerCount:8,dealCustomerCount:1,dealOrderCount:7,dealOrderMoney:'2689.68'},
-            {id:101,workerName:'天真标',followingCount:21,selfCustomerCount:8,giveCustomerCount:8,dealCustomerCount:1,dealOrderCount:7,dealOrderMoney:'2689.68'},
-            {id:102,workerName:'天真标',followingCount:23,selfCustomerCount:9,giveCustomerCount:8,dealCustomerCount:1,dealOrderCount:7,dealOrderMoney:'2689.68'},
-            {id:103,workerName:'天真标',followingCount:25,selfCustomerCount:6,giveCustomerCount:8,dealCustomerCount:1,dealOrderCount:7,dealOrderMoney:'2689.68'},
+            {id:100,workerName:'天真标',orderStep:'审核',followingCount:20,selfCustomerCount:6,giveCustomerCount:8,dealCustomerCount:1,dealOrderCount:7,dealOrderMoney:'2689.68'},
+            {id:101,workerName:'天真标',orderStep:'工商外勤',followingCount:21,selfCustomerCount:8,giveCustomerCount:8,dealCustomerCount:1,dealOrderCount:7,dealOrderMoney:'2689.68'},
+            {id:102,workerName:'天真标',orderStep:'拿证移交',followingCount:23,selfCustomerCount:9,giveCustomerCount:8,dealCustomerCount:1,dealOrderCount:7,dealOrderMoney:'2689.68'},
+            {id:103,workerName:'天真标',orderStep:'推至财务|结单',followingCount:25,selfCustomerCount:6,giveCustomerCount:8,dealCustomerCount:1,dealOrderCount:7,dealOrderMoney:'2689.68'},
           ]
       }
   };

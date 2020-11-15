@@ -1,5 +1,5 @@
 <template>
-<div>
+<div>1111
     <slot></slot>
   {{goodsid}}
 </div>

@@ -11,7 +11,7 @@
         </a-col>
         <a-col :span="8">
           <div class="myborder" style="margin-left: 10px;">
-            <div class="box_title"> <a-icon type="unordered-list" /> 订单数前10员工排行榜</div>
+            <div class="box_title"> <a-icon type="unordered-list" /> 订单金额排行榜</div>
             <uitable :datasource="tabledata" :tablecfg="tablecfg" style="height: 342px; overflow-y: scroll;"></uitable>
           </div>
         </a-col>
@@ -40,7 +40,7 @@
                 formatter: (v) => `${(v / 10e8).toFixed(1)} B`,
               },
             },
-            title:'rrrrrrrrrrrrrrrrrr',
+            title:'666',
             legend: {
               position: 'bottom ',
             },
@@ -56,9 +56,9 @@
           },
           tablecfg: {
               headerOptions:[
-                  { title: '员工账号', field: 'account'},
-                  { title: '订单数', field: 'orderNum'},
+                  { title: '客户姓名', field: 'account'},
                   { title: '订单金额', field: 'orderMoney'},
+                  { title: '订单数', field: 'orderNum'},
               ],
               algin:'center',
               scorllx:310

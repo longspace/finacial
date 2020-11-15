@@ -13,12 +13,12 @@
             </div>
         </div>
         <div class="box_needdoright">
-          
+
           <div class="taskNeedDo">
-          
+
             <div class="taskitems" v-for="i in 10">
               <div class="itemtitlebox">
-                <div class="itemtitleleft"><a-icon type="star" style="color: #1890ff; margin-right: 5px;" /> 张三{{i}}</div>
+                <div class="itemtitleleft"><a-icon type="star" style="color: #1890ff; margin-right: 5px;" /> 待办任务{{i}}</div>
                 <div class="itemtitleright">进行中(4/5)</div>
               </div>
               <div class="taskcontent">
@@ -26,17 +26,17 @@
                 <div class="tasktime"><a-icon type="history" class="tasktimeicon" /> 2020-11-04 17:28 至 2020-11-11 17:28</div>
               </div>
             </div>
-          
+
           </div>
-            
-            
-            
+
+
+
         </div>
       </div>
     </div>
-    
-    
-    
+
+
+
   </div>
 </template>
 <script>
@@ -85,7 +85,7 @@
   .taskitemMenu li{ height:40px; line-height: 40px; list-style: no; text-align: center; display: block; color:#666; cursor:pointer;border-right: #FFFFFF solid 2px;}
   .taskitemMenu li:hover{background-color: #f2f2ff; color: #1890ff;}
   .taskitemMenu li.isActive{ color: #1890ff; border-right: #1890ff solid 2px; color:#1890ff; background-color: #f2f2ff; border-radius: 3px;}
-  
+
 .taskNeedDo{ padding: 15px 15px 15px 27px; }
 .taskNeedDo .taskitems{ margin-bottom: 10px;
     margin-bottom: 15px;

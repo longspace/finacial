@@ -38,7 +38,7 @@
         <div class="boxtitle"><a-icon type="share-alt" style="color: rgb(230, 162, 60); margin-right: 6px; font-size: 16px;" /> 跟进信息</div>
         <div class="followinfo">
           <div><span>线索属性</span>跟进中</div>
-          <div><span>跟进人</span>小淫虫</div>
+          <div><span>跟进人</span>唐帅</div>
           <div><span>分配时间</span>2020-11-09 15:05:17</div>
           <div><span>创建时间</span>2020-11-09 15:01:26</div>
         </div>
@@ -47,7 +47,7 @@
           <div style="width: 20px; flex-shrink: 0;"><a-icon type="form" style="margin-right: 6px; cursor: pointer;" @click="editDialogShow" /></div>
         </div>
         <div class="followinfo">
-          <div><span>客户姓名</span>小淫虫</div>
+          <div><span>客户姓名</span>唐帅</div>
           <div><span>联系电话</span>18726356128</div>
           <div><span>公司名称</span>上海页溪网络有限公司</div>
           <div><span>公司地址</span>上海市宝山区杨行镇友谊路2689号520室</div>
@@ -69,7 +69,7 @@
                    <div style="clear: both;"></div>
                   </div>
                   <div class="editto">改为 已成交 </div>
-                  <div class="edituser">操作人 小淫虫 </div>
+                  <div class="edituser">操作人 唐帅 </div>
                   </template>
               </a-step>
               <a-step  status="finish">
@@ -81,7 +81,7 @@
                    <div style="clear: both;"></div>
                   </div>
                   <div class="editto">改为 已成交 </div>
-                  <div class="edituser">操作人 小淫虫 </div>
+                  <div class="edituser">操作人 唐帅 </div>
                   </template>
               </a-step>
               <a-step  status="finish">
@@ -93,7 +93,7 @@
                    <div style="clear: both;"></div>
                   </div>
                   <div class="editto">改为 已成交 </div>
-                  <div class="edituser">操作人 小淫虫 </div>
+                  <div class="edituser">操作人 唐帅 </div>
                   </template>
               </a-step>
               <a-step  status="finish">
@@ -105,7 +105,7 @@
                    <div style="clear: both;"></div>
                   </div>
                   <div class="editto">改为 已成交 </div>
-                  <div class="edituser">操作人 小淫虫 </div>
+                  <div class="edituser">操作人 唐帅 </div>
                   </template>
               </a-step>
               <a-step  status="finish">
@@ -117,7 +117,7 @@
                    <div style="clear: both;"></div>
                   </div>
                   <div class="editto">改为 已成交 </div>
-                  <div class="edituser">操作人 小淫虫 </div>
+                  <div class="edituser">操作人 唐帅 </div>
                   </template>
               </a-step>
             </a-steps>
@@ -316,8 +316,8 @@
       },
       mounted(){
         this.tabledata = [
-          {id:1,companyName:'上海页溪网络有限公司',tags:1,period:'录入线索',attr:'公海',followUser:'渣男',timeTree:'更新客户资料',willDoTask:'打电话',businessType:'注册公司',contacter:'唐淫',tel:'15866666666',address:'上海市宝山区杨行镇友谊路2689号520室',createTime:'2020-11-02 11:35:08'},
-          {id:2,companyName:'上海页溪网络有限公司',tags:0,period:'电话沟通',attr:'跟进中',followUser:'渣男',timeTree:'更新客户资料',willDoTask:'打电话',businessType:'行政变更',contacter:'唐淫',tel:'15866666666',address:'上海市宝山区杨行镇友谊路2689号520室',createTime:'2020-11-02 11:35:08'},
+          {id:1,companyName:'上海页溪网络有限公司',tags:1,period:'录入线索',attr:'公海',followUser:'唐帅',timeTree:'更新客户资料',willDoTask:'打电话',businessType:'注册公司',contacter:'唐帅',tel:'15866666666',address:'上海市宝山区杨行镇友谊路2689号520室',createTime:'2020-11-02 11:35:08'},
+          {id:2,companyName:'上海页溪网络有限公司',tags:0,period:'电话沟通',attr:'跟进中',followUser:'唐帅',timeTree:'更新客户资料',willDoTask:'打电话',businessType:'行政变更',contacter:'唐帅',tel:'15866666666',address:'上海市宝山区杨行镇友谊路2689号520室',createTime:'2020-11-02 11:35:08'},
 
         ]
       }

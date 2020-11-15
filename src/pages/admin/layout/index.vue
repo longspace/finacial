@@ -31,7 +31,7 @@
         <!-- @click="() => (collapsed = !collapsed)" -->
         <a-dropdown style="float:right;margin-right:12px;" placement="bottomRight">
           <a class="ant-dropdown-link" @click="e => e.preventDefault()">
-            <a-icon type="user" /> 欢迎 唐淫<a-icon type="down" /></a>
+            <a-icon type="user" /> 欢迎 唐帅 <a-icon type="down" /></a>
           <a-menu slot="overlay" @click="onHeaderClick">
             <a-menu-item key="1" @click="profile">
               <a-icon type="edit" />修改资料</a-menu-item>
@@ -74,6 +74,12 @@
         defaultSelectedKeys: ['/admin/dashboard'], // 默认选中的菜单
         menuItem: [
           {
+            key: 1,
+            title: '仪表盘',
+            'path': 'dashboard',
+            icon: 'global',
+            children: []
+          }, {
             key: 7,
             title: '客户管理',
             'path': 'customer',
@@ -83,7 +89,8 @@
               title: '全部客户',
               icon: '',
               'path': 'all'
-            }, {
+            },
+            {
               key: 75,
               title: '公海客户',
               icon: '',
@@ -98,7 +105,8 @@
               title: '我跟进的客户',
               icon: '',
               'path': 'myFollow'
-            }]
+            },
+            ]
           },
           {
             key: 77,
@@ -107,14 +115,76 @@
             icon: 'schedule',
             children: [{
               key: 71,
-              title: '我下发的任务',
+              title: '下发任务',
               icon: '',
               'path': 'sendWorker'
             }, {
               key: 72,
-              title: '我待办的任务',
+              title: '待办任务',
               icon: '',
               'path': 'needDo'
+            }]
+          },
+
+          {
+            key: 110,
+            title: '工具应用',
+            'path': 'logs',
+            icon: 'tool',
+            children: [{
+              key: 111,
+              title: '网站建设',
+              icon: '',
+              'path': 'website'
+            },{
+              key: 112,
+              title: '企业邮箱',
+              icon: '',
+              'path': 'sms'
+            },{
+              key: 113,
+              title: '快捷链接',
+              icon: '',
+              'path': 'quickLink'
+            }]
+          },
+          {
+            key: 210,
+            title: '订单管理',
+            'path': 'order',
+            icon: 'dollar',
+            children: [{
+              key: 111,
+              title: '订单列表',
+              icon: '',
+              'path': 'list'
+            }]
+          },
+          {
+            key: 9,
+            title: '企业设置',
+            'path': 'company',
+            icon: 'interaction',
+            children: [{
+              key: 91,
+              title: '员工管理',
+              icon: '',
+              'path': 'staffList'
+            }, {
+              key: 93,
+              title: '企业资料',
+              icon: '',
+              'path': 'about'
+            }, {
+              key: 92,
+              title: '跟进阶段',
+              icon: '',
+              'path': 'followingStep'
+            }, {
+              key: 94,
+              title: '秘钥设置',
+              icon: '',
+              'path': 'appsecret'
             }]
           },
           {
@@ -139,48 +209,38 @@
               'path': 'my'
             }]
           },
-          // {
-          //   key: 110,
-          //   title: '工具通讯',
-          //   'path': 'logs',
-          //   icon: 'tool',
-          //   children: [{
-          //     key: 111,
-          //     title: '企业微信',
-          //     icon: '',
-          //     'path': 'weixin'
-          //   },{
-          //     key: 112,
-          //     title: '云短信',
-          //     icon: '',
-          //     'path': 'sms'
-          //   }]
-          // },
           {
-            key: 9,
-            title: '基本设置',
-            'path': 'member',
+            key: 89,
+            title: '财务账单',
+            'path': 'bill',
+            icon: 'audit',
+            children: [{
+              key: 81,
+              title: '工具账单',
+              icon: '',
+              'path': 'tools'
+            }, {
+              key: 82,
+              title: '订单账单',
+              icon: '',
+              'path': 'order'
+            }]
+          },
+          {
+            key: 69,
+            title: '系统设置',
+            'path': 'system',
             icon: 'setting',
             children: [{
-              key: 91,
-              title: '员工管理',
+              key: 692,
+              title: '用户管理',
               icon: '',
-              'path': 'staffList'
+              'path': 'userList'
             }, {
-              key: 92,
-              title: '跟进阶段设置',
+              key: 691,
+              title: '角色权限',
               icon: '',
               'path': 'roleAuth'
-            }, {
-              key: 93,
-              title: '企业资料',
-              icon: '',
-              'path': 'backup'
-            }, {
-              key: 94,
-              title: '秘钥设置',
-              icon: '',
-              'path': 'appsecret'
             }]
           },
         ]

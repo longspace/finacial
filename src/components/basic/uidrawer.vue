@@ -53,7 +53,7 @@
   };
 </script>
 <style lang="scss">
-
+.ant-drawer{ z-index: 500;}
 </style>
 <style scoped lang="scss" rel="stylesheet/scss">
 .anticon-close{ color:#1890ff;}

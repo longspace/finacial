@@ -1,19 +1,24 @@
 <template>
   <div>
-    友客云SaaS平台
+    
+    <child :goodsid="pargoodsid">子组件中展示父组件的内容</child>
   </div>
 </template>
 <script>
+  import child from "./child.vue"
   export default {
       name:'',
       data() {
         return {
-
+          pargoodsid:10
         };
+      },
+      components:{
+        child
       },
       methods:{
         init(){
-
+          this.pargoodsid = 20
         }
       },
       mounted(){
@@ -25,5 +30,5 @@
 
 </style>
 <style scoped lang="scss" rel="stylesheet/scss">
-div{ text-align: center; padding-top: 150px; font-size: 26px;}
+
 </style>
