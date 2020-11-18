@@ -1,6 +1,6 @@
 <template>
   <div>
-    友客云SaaS平台
+    友客云管家
   </div>
 </template>
 <script>

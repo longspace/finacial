@@ -5,7 +5,7 @@
       <a-menu mode="inline" :defaultSelectedKeys="defaultSelectedKeys" :openKeys="currentOpenKeys" :style="{  borderRight: 0 }"
         @click="clickMenu" @openChange="openChange">
         <template v-for="(item,index) in menuItem">
-          <template v-if="item.children.length == 0">
+          <template v-if="item.hasChild == 0">
             <a-menu-item :key="'/admin/'+item.path">
               <a-icon :type="item.icon" />
               <span>{{item.title}}</span>
@@ -27,7 +27,7 @@
       <a-layout-header style="background: #fff; padding: 0">
         <a-icon class="trigger" :type="collapsed ? 'menu-unfold' : 'menu-fold'" @click="triggerMenu" />
         <!-- <span><a-icon type="info-circle" /> -->
-        免费试用中，将于2020-11-12 00:00:00到期。如需订购请联系互客销售经理</span>
+        免费试用中，将于2020-11-12 00:00:00到期。如需订购请联系有客销售经理</span>
         <!-- @click="() => (collapsed = !collapsed)" -->
         <a-dropdown style="float:right;margin-right:12px;" placement="bottomRight">
           <a class="ant-dropdown-link" @click="e => e.preventDefault()">
@@ -72,179 +72,184 @@
         collapsed: false,
         currentOpenKeys: [1], // 重点 当前展开的菜单
         defaultSelectedKeys: ['/admin/dashboard'], // 默认选中的菜单
-        menuItem: [
-          {
-            key: 1,
-            title: '仪表盘',
-            'path': 'dashboard',
-            icon: 'global',
-            children: []
-          }, {
-            key: 7,
-            title: '客户管理',
-            'path': 'customer',
-            icon: 'team',
-            children: [{
-              key: 71,
-              title: '全部客户',
-              icon: '',
-              'path': 'all'
-            },
-            {
-              key: 75,
-              title: '公海客户',
-              icon: '',
-              'path': 'sea'
-            }, {
-              key: 74,
-              title: '跟进中客户',
-              icon: '',
-              'path': 'following'
-            },  {
-              key: 76,
-              title: '我跟进的客户',
-              icon: '',
-              'path': 'myFollow'
-            },
-            ]
-          },
-          {
-            key: 77,
-            title: '任务管理',
-            'path': 'task',
-            icon: 'schedule',
-            children: [{
-              key: 71,
-              title: '下发任务',
-              icon: '',
-              'path': 'sendWorker'
-            }, {
-              key: 72,
-              title: '待办任务',
-              icon: '',
-              'path': 'needDo'
-            }]
-          },
+        menuItem: [],
+        // menuItemold:[
+        //   {
+        //     key: 1,
+        //     title: '仪表盘',
+        //     'path': 'dashboard',
+        //     icon: 'global',
+        //     children: []
+        //   }, {
+        //     key: 7,
+        //     title: '客户管理',
+        //     'path': 'customer',
+        //     icon: 'team',
+        //     children: [{
+        //       key: 71,
+        //       title: '全部客户',
+        //       icon: '',
+        //       'path': 'all'
+        //     },
+        //     {
+        //       key: 75,
+        //       title: '公海客户',
+        //       icon: '',
+        //       'path': 'sea'
+        //     }, {
+        //       key: 74,
+        //       title: '跟进中客户',
+        //       icon: '',
+        //       'path': 'following'
+        //     },  {
+        //       key: 76,
+        //       title: '我跟进的客户',
+        //       icon: '',
+        //       'path': 'myFollow'
+        //     },
+        //     ]
+        //   },
+        //   {
+        //     key: 77,
+        //     title: '任务管理',
+        //     'path': 'task',
+        //     icon: 'schedule',
+        //     children: [{
+        //       key: 71,
+        //       title: '下发任务',
+        //       icon: '',
+        //       'path': 'sendWorker'
+        //     }, {
+        //       key: 72,
+        //       title: '待办任务',
+        //       icon: '',
+        //       'path': 'needDo'
+        //     }]
+        //   },
 
-          {
-            key: 110,
-            title: '工具应用',
-            'path': 'logs',
-            icon: 'tool',
-            children: [{
-              key: 111,
-              title: '网站建设',
-              icon: '',
-              'path': 'website'
-            },{
-              key: 112,
-              title: '企业邮箱',
-              icon: '',
-              'path': 'sms'
-            },{
-              key: 113,
-              title: '快捷链接',
-              icon: '',
-              'path': 'quickLink'
-            }]
-          },
-          {
-            key: 210,
-            title: '订单管理',
-            'path': 'order',
-            icon: 'dollar',
-            children: [{
-              key: 111,
-              title: '订单列表',
-              icon: '',
-              'path': 'list'
-            }]
-          },
-          {
-            key: 9,
-            title: '企业设置',
-            'path': 'company',
-            icon: 'interaction',
-            children: [{
-              key: 91,
-              title: '员工管理',
-              icon: '',
-              'path': 'staffList'
-            }, {
-              key: 93,
-              title: '企业资料',
-              icon: '',
-              'path': 'about'
-            }, {
-              key: 92,
-              title: '跟进阶段',
-              icon: '',
-              'path': 'followingStep'
-            }, {
-              key: 94,
-              title: '秘钥设置',
-              icon: '',
-              'path': 'appsecret'
-            }]
-          },
-          {
-            key: 81,
-            title: '数据报表',
-            'path': 'report',
-            icon: 'pie-chart',
-            children: [{
-              key: 81,
-              title: '企业概览',
-              icon: '',
-              'path': 'company'
-            }, {
-              key: 82,
-              title: '员工报表 ',
-              icon: '',
-              'path': 'worker'
-            }, {
-              key: 83,
-              title: '我的报表 ',
-              icon: '',
-              'path': 'my'
-            }]
-          },
-          {
-            key: 89,
-            title: '财务账单',
-            'path': 'bill',
-            icon: 'audit',
-            children: [{
-              key: 81,
-              title: '工具账单',
-              icon: '',
-              'path': 'tools'
-            }, {
-              key: 82,
-              title: '订单账单',
-              icon: '',
-              'path': 'order'
-            }]
-          },
-          {
-            key: 69,
-            title: '系统设置',
-            'path': 'system',
-            icon: 'setting',
-            children: [{
-              key: 692,
-              title: '用户管理',
-              icon: '',
-              'path': 'userList'
-            }, {
-              key: 691,
-              title: '角色权限',
-              icon: '',
-              'path': 'roleAuth'
-            }]
-          },
-        ]
+        //   {
+        //     key: 110,
+        //     title: '工具应用',
+        //     'path': 'logs',
+        //     icon: 'tool',
+        //     children: [{
+        //       key: 111,
+        //       title: '网站建设',
+        //       icon: '',
+        //       'path': 'website'
+        //     },{
+        //       key: 112,
+        //       title: '企业邮箱',
+        //       icon: '',
+        //       'path': 'sms'
+        //     },{
+        //       key: 113,
+        //       title: '快捷链接',
+        //       icon: '',
+        //       'path': 'quickLink'
+        //     }]
+        //   },
+        //   {
+        //     key: 210,
+        //     title: '订单管理',
+        //     'path': 'order',
+        //     icon: 'dollar',
+        //     children: [{
+        //       key: 111,
+        //       title: '订单列表',
+        //       icon: '',
+        //       'path': 'list'
+        //     }]
+        //   },
+        //   {
+        //     key: 9,
+        //     title: '企业设置',
+        //     'path': 'company',
+        //     icon: 'interaction',
+        //     children: [{
+        //       key: 91,
+        //       title: '员工管理',
+        //       icon: '',
+        //       'path': 'staffList'
+        //     }, {
+        //       key: 93,
+        //       title: '企业资料',
+        //       icon: '',
+        //       'path': 'about'
+        //     }, {
+        //       key: 92,
+        //       title: '跟进阶段',
+        //       icon: '',
+        //       'path': 'followingStep'
+        //     }, {
+        //       key: 94,
+        //       title: '秘钥设置',
+        //       icon: '',
+        //       'path': 'appsecret'
+        //     }]
+        //   },
+        //   {
+        //     key: 81,
+        //     title: '数据报表',
+        //     'path': 'report',
+        //     icon: 'pie-chart',
+        //     children: [{
+        //       key: 81,
+        //       title: '企业概览',
+        //       icon: '',
+        //       'path': 'company'
+        //     }, {
+        //       key: 82,
+        //       title: '员工报表 ',
+        //       icon: '',
+        //       'path': 'worker'
+        //     }, {
+        //       key: 83,
+        //       title: '我的报表 ',
+        //       icon: '',
+        //       'path': 'my'
+        //     }]
+        //   },
+        //   {
+        //     key: 89,
+        //     title: '财务账单',
+        //     'path': 'bill',
+        //     icon: 'audit',
+        //     children: [{
+        //       key: 81,
+        //       title: '工具账单',
+        //       icon: '',
+        //       'path': 'tools'
+        //     }, {
+        //       key: 82,
+        //       title: '订单账单',
+        //       icon: '',
+        //       'path': 'order'
+        //     }]
+        //   },
+        //   {
+        //     key: 69,
+        //     title: '系统设置',
+        //     'path': 'system',
+        //     icon: 'setting',
+        //     children: [{
+        //       key: 692,
+        //       title: '用户管理',
+        //       icon: '',
+        //       'path': 'userList'
+        //     }, {
+        //       key: 691,
+        //       title: '角色权限',
+        //       icon: '',
+        //       'path': 'roleAuth'
+        //     }]
+        //   },
+        // ],
+
       };
+    },
+    watch:{
+      // menuItem
     },
     methods: {
       triggerMenu() {
@@ -258,7 +263,7 @@
         }
       },
       clickMenu(obj) {
-        // console.log("clickMenu", obj)
+        console.log("clickMenu", obj)
         this.getBreadNav(obj.key)
         this.$router.push(obj.key)
       },
@@ -267,7 +272,7 @@
         let curPath = path==''?this.$route.path:path
         console.log("curPath",curPath)
         this.menuItem.forEach((item,index)=>{
-            if(item.children.length > 0){
+            if(item.hasChild > 0){
               item.children.forEach((items,indexs)=>{
                 if("/admin/"+item.path+'/'+items.path == curPath){
                   this.pathLabel = [item.title,items.title]
@@ -277,6 +282,7 @@
         })
       },
       openChange(openKeys) {
+        console.log("openChange", openKeys)
         if (openKeys.length !== 0) {
           this.currentOpenKeys = [openKeys[1]]
         } else {
@@ -296,7 +302,7 @@
           onOk() {
             console.log('OK');
             localStorage.clear();
-            that.$router.push('/')
+            that.$router.push('/yxadmin')
           },
           onCancel() {
             console.log('Cancel');
@@ -305,11 +311,15 @@
       },
       profile() {
         this.$router.push('/admin/profile')
+      },
+      initMenu(){
+        this.menuItem = JSON.parse(this.$store.state.menuPermission)
+        console.log("menuPermission",this.$store.state.menuPermission)
       }
     },
     mounted() {
-      // doLogin()
-      this.getBreadNav()
+      this.initMenu()
+      // this.getBreadNav()
     }
   };
 </script>

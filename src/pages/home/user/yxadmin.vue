@@ -4,7 +4,7 @@
       <div class="login_box">
         <!-- <a-col :span="5" :offset="9"> -->
         <a-form :label-col="{ span: 5 }" :wrapper-col="{ span: 19 }" :form="form" @submit="handleSubmit">
-          <div class="form_title"><img src="/static/images/logoShort.png" class="login_logo" />友客云SaaS平台</div>
+          <div class="form_title"><img src="/static/images/logoShort.png" class="login_logo" />有客云管家</div>
           <!-- 便捷管理 高效工作 -->
           <a-form-item label="账号" :validate-status="accountError() ? 'error' : ''" :help="accountError() || ''">
             <a-input v-decorator="[
@@ -41,7 +41,7 @@
 
 <script>
   import {
-    doLogin
+    doLogin,getMyMenu
   } from "@/utils/http/index"
 
   function hasErrors(fieldsError) {
@@ -85,37 +85,39 @@
       },
       handleSubmit(e) {
         e.preventDefault();
-        // this.form.validateFields((err, values) => {
-        //   if (!err) {
-        //     console.log('Received values of form: ', values);
-        //     doLogin(values)
-        //     .then(resp=>{
-        //         console.log(resp.data)
-        //         if(resp.data.code == 200){
-        //             localStorage.setItem('AuthToken',resp.data.token)
-        //             console.log(resp.data.token);
-        //             this.$router.push('/admin/customer/all')
-        //         }else{
-        //             // this.$message({
-        //             //     message: '账号和密码不正确，请检查！',
-        //             //     type: 'warning',
-        //             //     showClose:true
-        //             // });
-        //             this.$message.error("账号和密码不正确，请检查！");
-        //             return false;
-        //         }
-        //     })
-        //     .catch(err=>{
-        //         console.log("error:",err)
-        //     });
-        //   }
-        // });
-
-        localStorage.setItem('AuthToken', 'YTZiY2VkY2E1YWVmZTg3ODQ4MGYxODE0ZTkyYWUwMmE=')
-        this.$router.push('/admin/customer/all')
-
+        let that = this;
+        this.form.validateFields((err, values) => {
+          if (!err) {
+            doLogin(values)
+            .then(resp=>{
+                console.log(resp.data)
+                if(resp.data.code == 200){
+                    localStorage.setItem('AuthToken',resp.data.token)
+                    let AuthToken = localStorage.getItem('AuthToken')
+                    getMyMenu({}).then(rs=>{
+                      that.$store.commit("setMenuPermission",JSON.stringify(rs.data.data))
+                      that.$router.push('/admin/dashboard')
+                    })
+                    .catch(err=>{
+                        console.log("error:",'获取权限失败！',err)
+                    });
+                }else{
+                    this.$message.error("账号和密码不正确，请检查！");
+                    return false;
+                }
+            })
+            .catch(err=>{
+                console.log("error:",err)
+            });
+          }
+        });
+        // localStorage.setItem('AuthToken', 'YTZiY2VkY2E1YWVmZTg3ODQ4MGYxODE0ZTkyYWUwMmE=')
+        // this.$router.push('/admin/dashboard')
       },
+
+
     },
+
   };
 </script>
 

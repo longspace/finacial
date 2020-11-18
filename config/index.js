@@ -14,7 +14,7 @@ module.exports = {
     proxyTable: {
       '/api': {
         // 测试环境
-        target: 'http://admin.bmw.org/',  // 接口域名
+        target: 'http://admin.youkeyun.org',  // 接口域名
         changeOrigin: true,  //是否跨域
         pathRewrite: {
             '^/api': '/api'   //需要rewrite重写的,
